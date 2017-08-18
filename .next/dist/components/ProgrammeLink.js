@@ -22,7 +22,7 @@ exports.default = function (props) {
       fileName: _jsxFileName,
       lineNumber: 4
     }
-  }, _react2.default.createElement(_link2.default, { href: props.baseRef + props.letter, __source: {
+  }, _react2.default.createElement(_link2.default, { as: '/p/' + props.letter, href: '/programme?letter=' + props.letter, __source: {
       fileName: _jsxFileName,
       lineNumber: 5
     }

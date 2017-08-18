@@ -2,7 +2,7 @@ import Link from 'next/link'
 
 export default (props) => (
     <li>
-      <Link href={props.baseRef + props.letter} >
+      <Link as={'/p/' + props.letter} href={`/programme?letter=${props.letter}`} >
         <a>{props.letter}</a>
       </Link>
     </li>

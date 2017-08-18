@@ -26,7 +26,7 @@ exports.default = function (props) {
       lineNumber: 6
     }
   }, alphabet.map(function (letter) {
-    return _react2.default.createElement(_ProgrammeLink2.default, { baseRef: props.baseRef, letter: letter, __source: {
+    return _react2.default.createElement(_ProgrammeLink2.default, { key: letter, letter: letter, __source: {
         fileName: _jsxFileName,
         lineNumber: 8
       }

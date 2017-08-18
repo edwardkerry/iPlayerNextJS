@@ -5,7 +5,7 @@ const alphabet = ['a', 'b']
 export default (props) => (
   <ul>
     {alphabet.map((letter) => (
-      <ProgrammeLink baseRef={props.baseRef} letter={letter}/>
+      <ProgrammeLink key={letter} letter={letter}/>
     ))}
   </ul>
 )
