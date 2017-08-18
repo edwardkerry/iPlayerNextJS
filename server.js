@@ -8,8 +8,8 @@ const handle = app.getRequestHandler()
 app.prepare()
 .then(() => {
   const server = express()
-  
-  server.get('/p/:letter', (req, res) => {
+
+  server.get('/:letter', (req, res) => {
     const actualPage = '/programme'
     const queryParams = { letter: req.params.letter}
     app.render(req, res, actualPage, queryParams)

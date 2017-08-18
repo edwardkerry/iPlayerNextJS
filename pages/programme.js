@@ -1,13 +1,19 @@
 import Header from '../components/Header'
 import SearchBar from '../components/SearchBar'
 import Programme from '../components/Programme'
+import PageLink from '../components/PageLink'
+
 import fetch from 'isomorphic-unfetch'
 
+const pageCount = (programme_count, per_page) => {
+  return Math.ceil(programme_count / per_page)
+}
 
 const Programmes = (props) => (
   <div>
     <Header />
     <SearchBar />
+    <PageLink pageCount={pageCount(props.programme_count, props.per_page)} letter={props.letter} />
     <ul>
       {props.programmes.map((programme) => (
         <Programme
@@ -21,16 +27,21 @@ const Programmes = (props) => (
   </div>
 )
 
-
 Programmes.getInitialProps = async function (context) {
-  const letter = context.query.letter
-  const res = await fetch(`https://ibl.api.bbci.co.uk/ibl/v1/atoz/${letter}/programmes`)
+  const letter = context.query.letter.toLowerCase()
+  let url = `https://ibl.api.bbci.co.uk/ibl/v1/atoz/${letter}/programmes`
+  if (context.query.page) {
+    url = url + `?page=${context.query.page}`
+  }
+  const res = await fetch(url)
   const data = await res.json()
+  console.log(data)
 
     return {
-      page: data.page,
-      per_page: data.per_page,
-      programme_count: data.count,
+      letter: letter,
+      page: data.atoz_programmes.page,
+      per_page: data.atoz_programmes.per_page,
+      programme_count: data.atoz_programmes.count,
       programmes: data.atoz_programmes.elements
     }
 }

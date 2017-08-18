@@ -1,6 +1,6 @@
 import ProgrammeLink from './ProgrammeLink'
 
-const alphabet = ['a', 'b']
+let alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('')
 
 export default (props) => (
   <ul>
