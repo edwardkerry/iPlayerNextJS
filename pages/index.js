@@ -2,9 +2,8 @@ import Header from '../components/Header'
 import SearchBar from '../components/SearchBar'
 
 export default () => (
-  <div>
+  <div className="container">
   <Header />
-    <h1>iPlayer Programme Search</h1>
-    <SearchBar />
+  <SearchBar />
   </div>
 )

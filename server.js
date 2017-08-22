@@ -11,7 +11,13 @@ app.prepare()
 
   server.get('/:letter', (req, res) => {
     const actualPage = '/programme'
-    const queryParams = { letter: req.params.letter}
+    const queryParams = { letter: req.params.letter, page: req.params.page}
+    app.render(req, res, actualPage, queryParams)
+  })
+
+  server.get('/:letter/:page', (req, res) => {
+    const actualPage = '/programme'
+    const queryParams = { letter: req.params.letter, page: req.params.page}
     app.render(req, res, actualPage, queryParams)
   })
 

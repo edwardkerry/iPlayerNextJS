@@ -10,7 +10,7 @@ const pageCount = (programme_count, per_page) => {
 }
 
 const Programmes = (props) => (
-  <div>
+  <div className="container">
     <Header />
     <SearchBar />
     <PageLink pageCount={pageCount(props.programme_count, props.per_page)} letter={props.letter} />
@@ -20,7 +20,7 @@ const Programmes = (props) => (
           key={programme.id}
           title={programme.title}
           image={programme.images.standard}
-          synopses={programme.synopses.small}
+          synopsis={programme.synopses.small}
           />
       ))}
     </ul>
@@ -29,10 +29,8 @@ const Programmes = (props) => (
 
 Programmes.getInitialProps = async function (context) {
   const letter = context.query.letter.toLowerCase()
-  let url = `https://ibl.api.bbci.co.uk/ibl/v1/atoz/${letter}/programmes`
-  if (context.query.page) {
-    url = url + `?page=${context.query.page}`
-  }
+  const page = context.query.page || 1
+  const url = `https://ibl.api.bbci.co.uk/ibl/v1/atoz/${letter}/programmes?page=${page}`
   const res = await fetch(url)
   const data = await res.json()
   console.log(data)
