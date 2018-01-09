@@ -14,7 +14,7 @@ const generateLinks = (pageCount, letter) => {
             display: inline-block;
             padding: 10px;
           }
-          
+
         `}</style>
       </li>
     )
@@ -24,6 +24,6 @@ const generateLinks = (pageCount, letter) => {
 
 export default (props) => (
   <div>
-    {generateLinks(props.pageCount, props.letter)}
+    {generateLinks(props.pageCount, props.letter) }
   </div>
 )

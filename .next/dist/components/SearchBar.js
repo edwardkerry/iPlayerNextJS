@@ -17,7 +17,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var _jsxFileName = '/Users/edwardk/personal/iPlayer-next/components/SearchBar.js';
 
 
-var alphabet = ['a', 'b'];
+var alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
 
 exports.default = function (props) {
   return _react2.default.createElement('ul', {
@@ -25,8 +25,8 @@ exports.default = function (props) {
       fileName: _jsxFileName,
       lineNumber: 6
     }
-  }, alphabet.map(function (letter) {
-    return _react2.default.createElement(_ProgrammeLink2.default, { key: letter, letter: letter, __source: {
+  }, alphabet.map(function (letter, index) {
+    return _react2.default.createElement(_ProgrammeLink2.default, { key: index, letter: letter, __source: {
         fileName: _jsxFileName,
         lineNumber: 8
       }
